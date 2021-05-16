@@ -181,9 +181,9 @@ def start(update: Update, _: CallbackContext) -> None:
     Handles /start, the very first message the user gets whenever they start interacting with this bot
     """
     msg = """Hey there!👋
-Welcome to Covid19 Vaccine India Assist bot. 
+Welcome to Vaccine4all bot designed for Covid 19 vaccination. 
 
-It will weekly check slots availability in your area and alert you when one becomes available. To start either click 
+I will check the weekly slots availability in your area and alert you when slots becomes available. To start either click 
 🔔 *Setup Alert* or 🔍 *Check Open Slots*.
 
 If you are a first time user it will ask for your age and pincode."""
@@ -222,11 +222,11 @@ def cmd_button_handler(update: Update, ctx: CallbackContext) -> None:
 
 
 def get_help_text_short() -> str:
-    return """This bot will help you to check current available slots in one week and also, alert you when one becomes available. To start, either click on "Setup Alert" or "Check Open Slots". For first time users, bot will ask for age preference and pincode."""  ## noqa
+    return """This bot will help you to check current available weekly slots and also, alert you when the slots becomes available. To start, either click on "Setup Alert" or "Check Open Slots". For first time users, bot will ask for age preference and pincode."""  ## noqa
 
 
 def get_help_text() -> str:
-    return """\n\n*Setup Alert*\nUse this to setup an alert, it will send a message as soon as a slot becomes available. Select the age preference and provide the area pincode of the vaccination center you would like to monitor. Do note that 18+ slots are monitored more often than 45+. Click on /pause to stop alerts and /resume to enable them back.\n\n*Check Open Slots*\nUse this to check the slots availability manually.\n\n*Age Preference*\nTo change age preference, click on /age\n\n*Pincode*\nClick on /pincode to change the pincode. Alternatively, you can send pincode any time and bot will update it.\n\n*Delete*\nClick on /delete if you would like delete all your information."""  ## noqa
+    return """\n\n*Setup Alert*\nUse this is to setup an alert, it will send a message as soon as a slot becomes available. Select the age preference and provide the area pincode of the vaccination center you would like to monitor. Do note that 18+ slots are monitored more often than 45+. Click on /pause to stop alerts and /resume to enable them back.\n\n*Check Open Slots*\nUse this to check the slots availability manually.\n\n*Age Preference*\nTo change age preference, click on /age\n\n*Pincode*\nClick on /pincode to change the pincode. Alternatively, you can send pincode any time and bot will update it.\n\n*Delete*\nClick on /delete if you would like delete all your information."""  ## noqa
 
 
 def help_handler(update: Update, _: CallbackContext):
@@ -433,7 +433,7 @@ def check_slots_command(update: Update, ctx: CallbackContext) -> None:
     )
     if not vaccination_centers:
         update.effective_chat.send_message(
-            f"Hey sorry, seems there are no free slots available (pincode: {user.pincode}, age preference: {user.age_limit})"
+            f"Hey, sorry seems there are no free slots available, please come back and check again (pincode: {user.pincode}, age preference: {user.age_limit})"
         )
         return
 
